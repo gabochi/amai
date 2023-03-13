@@ -8,7 +8,7 @@ Auto map and insert json/dict to a sql table. Oracle supports json objects but y
 from amai import amai
 
 MY_DICT = {'name':'gabriel', 'pets': [{'name':'bit','type':'cat'},{'name':None,'type':'tamagochi'}]}
-MY_ROOT = "TABLE"
+MY_ROOT = "X"
 m = amai(MY_DICT, MY_ROOT)
 ```
 2. Use `insert` method to insert results in an existing table (you need to pass a db connection object)
@@ -19,6 +19,11 @@ m.insert(MY_TABLE,DB_CONNECTION)
 ```
 
 3. Done! In this example you should have two insertions, one for each pet (since it is a list). Common fields are duplicated and each field maps to a column, if the column doesn't exist it is created.
+
+X_NAME | X_PETS_NAME | X_PETS_TYPE
+---|---|---
+gabriel | bit | cat
+gabriel | Null | computer
 
 # What do you get?
 * `self.fields` : a set of normalized keys
