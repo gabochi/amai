@@ -1,5 +1,5 @@
 # amai
-Auto map and insert json/dict to a sql table. Oracle supports json objects but you can have backend people not supporting programming so... Aparently, there's no conventional way for doing this convertion so I made my own script. Feel free to suggest and adjust according to your requirements.
+Auto map and insert json/dict to a sql table. Oracle supports json objects but you can have backend personnel not supporting programming... Aparently, there's no conventional way for doing this convertion so I made my own script. Feel free to suggest and adjust according to your requirements.
 
 # Instructions
 1. Import the class, then pass the dict and a root path (remember to use the same root for the same table):
