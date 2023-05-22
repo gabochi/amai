@@ -1,3 +1,23 @@
+class automap:
+    def __init__(self, all_data):
+        self.fields = set()
+        self.tuplas = []
+        
+        def r(data, path):
+            if type(data) in {dict,list}:
+                if isinstance(data,dict):
+                    for k,v in data.items():
+                        self.fields.add("_".join(path+[k]))
+                        r(v,path+[k])
+                else:
+                    for i in data:
+                        r(i,path)
+            else:
+                self.tuplas.append(("_".join(path),data))
+        
+        r(all_data,[])
+        
+"""
 # Auto Map And Insert
 
 from datetime import datetime
@@ -46,14 +66,6 @@ class amai:
                 except:
                     pass
 
-        """
-        test
-        for n in range(len(self.fields)):
-            x = self.rows[0][n]
-            for r in range(len(self.rows)):
-                y = self.rows[r][n]
-                if x != y: print(x, y, self.fields[n])
-        """
 
     def insert(self, table, connect):
         
@@ -89,3 +101,4 @@ class amai:
         print(command, self.rows)
         cursor.executemany(command, self.rows)
         connect.commit()
+"""
